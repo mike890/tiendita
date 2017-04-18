@@ -21,3 +21,25 @@ Product.create(name: 'product 4', price: 150, category: category2)
 
 Product.create(name: 'product 5', price: 100, category: category3)
 Product.create(name: 'product 6', price: 150, category: category3)
+
+product = category1.products.build(name: 'product 7', price:200)
+puts product.inspect
+product.save
+puts product.inspect
+product.destroy
+puts '--------------------------'
+pro = Product.last
+pro.premium = true
+pro.save
+puts pro.inspect
+puts '--------------------------'
+Category.all.each do |c|
+  #c.name = c.name.upcase
+  #c.save
+
+  #c.name.upcase!
+  #c.save
+
+  c.update name: c.name.upcase
+  puts c.name
+end
